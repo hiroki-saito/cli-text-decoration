@@ -1,6 +1,8 @@
 # CliTextDecoration
 String decoration library for PHP CLI output
 
+![CliTextDecoration](https://raw.githubusercontent.com/gamu1012/image-box/master/cli-text-decoration.png)
+
 ## Installation
 ```
 composer require gamu1012/cli-text-decoration
