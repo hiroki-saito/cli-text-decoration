@@ -3,6 +3,9 @@ String decoration library for PHP CLI output
 
 ![CliTextDecoration](https://raw.githubusercontent.com/gamu1012/image-box/master/cli-text-decoration.png)
 
+## Requirements
+- PHP 8.5 or later
+
 ## Installation
 ```
 composer require gamu1012/cli-text-decoration
@@ -33,6 +36,7 @@ Finally, we use the decorate method to get the result
 - red()
 - green()
 - yellow()
+- blue()
 - magenta()
 - cyan()
 - white()
@@ -42,6 +46,7 @@ Finally, we use the decorate method to get the result
 - redBackground()
 - greenBackground()
 - yellowBackground()
+- blueBackground()
 - magentaBackground()
 - cyanBackground()
 - whiteBackground()
@@ -51,4 +56,5 @@ Finally, we use the decorate method to get the result
 - italic()
 - underLine()
 - blink()
+- reverse()
 - hidden()
