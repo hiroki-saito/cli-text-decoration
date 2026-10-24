@@ -5,59 +5,52 @@ namespace Gamu1012;
 /**
  * Class CliTextDecoration
  *
- * @package Ggamu1012
+ * @package Gamu1012
  */
 class CliTextDecoration
 {
-    const BOLD = 1;
-    const ITALIC = 3;
-    const UNDERLINE = 4;
-    const BLINK = 5;
-    const REVERSE = 7;
-    const HIDDEN = 8;
+    public const BOLD = 1;
+    public const ITALIC = 3;
+    public const UNDERLINE = 4;
+    public const BLINK = 5;
+    public const REVERSE = 7;
+    public const HIDDEN = 8;
 
-    const BLACK = 30;
-    const RED = 31;
-    const GREEN = 32;
-    const YELLOW = 33;
-    const BLUE = 34;
-    const MAGENTA = 35;
-    const CYAN = 36;
-    const WHITE = 37;
+    public const BLACK = 30;
+    public const RED = 31;
+    public const GREEN = 32;
+    public const YELLOW = 33;
+    public const BLUE = 34;
+    public const MAGENTA = 35;
+    public const CYAN = 36;
+    public const WHITE = 37;
 
-    const BLACK_BACKGROUND = 40;
-    const RED_BACKGROUND = 41;
-    const GREEN_BACKGROUND = 42;
-    const YELLOW_BACKGROUND = 43;
-    const BLUE_BACKGROUND = 44;
-    const MAGENTA_BACKGROUND = 45;
-    const CYAN_BACKGROUND = 46;
-    const WHITE_BACKGROUND = 47;
+    public const BLACK_BACKGROUND = 40;
+    public const RED_BACKGROUND = 41;
+    public const GREEN_BACKGROUND = 42;
+    public const YELLOW_BACKGROUND = 43;
+    public const BLUE_BACKGROUND = 44;
+    public const MAGENTA_BACKGROUND = 45;
+    public const CYAN_BACKGROUND = 46;
+    public const WHITE_BACKGROUND = 47;
 
-    private $string;
+    private string $string;
 
-    private $color = null;
-    private $backgroundColor = null;
-    private $attribute = null;
+    private ?int $color = null;
+    private ?int $backgroundColor = null;
+    private int|string|null $attribute = null;
 
-    private function __construct($string = '')
+    private function __construct(string $string = '')
     {
         $this->string = $string;
     }
 
-    /**
-     * @param $string
-     * @return CliTextDecoration
-     */
-    public static function setString($string)
+    public static function setString(string $string): self
     {
         return new CliTextDecoration($string);
     }
 
-    /**
-     * @return $this
-     */
-    public function bold()
+    public function bold(): self
     {
         if (isset($this->attribute)) {
             $this->attribute .= ';' . self::BOLD;
@@ -67,10 +60,7 @@ class CliTextDecoration
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function italic()
+    public function italic(): self
     {
         if (isset($this->attribute)) {
             $this->attribute .= ';' . self::ITALIC;
@@ -80,10 +70,7 @@ class CliTextDecoration
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function underLine()
+    public function underLine(): self
     {
         if (isset($this->attribute)) {
             $this->attribute .= ';' . self::UNDERLINE;
@@ -93,10 +80,7 @@ class CliTextDecoration
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function blink()
+    public function blink(): self
     {
         if (isset($this->attribute)) {
             $this->attribute .= ';' . self::BLINK;
@@ -106,10 +90,7 @@ class CliTextDecoration
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function reverse()
+    public function reverse(): self
     {
         if (isset($this->attribute)) {
             $this->attribute .= ';' . self::REVERSE;
@@ -119,10 +100,7 @@ class CliTextDecoration
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function hidden()
+    public function hidden(): self
     {
         if (isset($this->attribute)) {
             $this->attribute .= ';' . self::HIDDEN;
@@ -132,154 +110,103 @@ class CliTextDecoration
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function black()
+    public function black(): self
     {
         $this->color = self::BLACK;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function red()
+    public function red(): self
     {
         $this->color = self::RED;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function green()
+    public function green(): self
     {
         $this->color = self::GREEN;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function yellow()
+    public function yellow(): self
     {
         $this->color = self::YELLOW;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function blue()
+    public function blue(): self
     {
         $this->color = self::BLUE;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function magenta()
+    public function magenta(): self
     {
         $this->color = self::MAGENTA;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function cyan()
+    public function cyan(): self
     {
         $this->color = self::CYAN;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function white()
+    public function white(): self
     {
         $this->color = self::WHITE;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function blackBackground()
+    public function blackBackground(): self
     {
         $this->backgroundColor = self::BLACK_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function redBackground()
+    public function redBackground(): self
     {
         $this->backgroundColor = self::RED_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function greenBackground()
+    public function greenBackground(): self
     {
         $this->backgroundColor = self::GREEN_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function yellowBackground()
+    public function yellowBackground(): self
     {
         $this->backgroundColor = self::YELLOW_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function blueBackground()
+    public function blueBackground(): self
     {
         $this->backgroundColor = self::BLUE_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function magentaBackground()
+    public function magentaBackground(): self
     {
         $this->backgroundColor = self::MAGENTA_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function cyanBackground()
+    public function cyanBackground(): self
     {
         $this->backgroundColor = self::CYAN_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function whiteBackground()
+    public function whiteBackground(): self
     {
         $this->backgroundColor = self::WHITE_BACKGROUND;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function decorate()
+    public function decorate(): string
     {
         $formattedColorString = "\e[";
         if (isset($this->color)) {
