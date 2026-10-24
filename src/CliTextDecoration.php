@@ -208,17 +208,14 @@ class CliTextDecoration
 
     public function decorate(): string
     {
-        $formattedColorString = "\e[";
-        if (isset($this->color)) {
-            $formattedColorString .= "{$this->color};";
+        $codes = array_filter(
+            [$this->color, $this->backgroundColor, $this->attribute],
+            fn ($code) => $code !== null
+        );
+        if ($codes === []) {
+            return $this->string;
         }
-        if (isset($this->backgroundColor)) {
-            $formattedColorString .= "{$this->backgroundColor};";
-        }
-        if (isset($this->attribute)) {
-            $formattedColorString .= "{$this->attribute};";
-        }
-        $formattedColorString .= "m{$this->string}\e[0m";
-        return $formattedColorString;
+
+        return "\e[" . implode(';', $codes) . "m{$this->string}\e[0m";
     }
 }
